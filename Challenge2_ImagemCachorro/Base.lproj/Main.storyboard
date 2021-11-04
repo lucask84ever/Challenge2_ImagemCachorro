@@ -30,6 +30,9 @@
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Novo cachorro"/>
+                                <connections>
+                                    <action selector="anotherDog" destination="BYZ-38-t0r" eventType="touchUpInside" id="3co-DP-fUD"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>

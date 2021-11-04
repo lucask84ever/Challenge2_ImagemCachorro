@@ -19,12 +19,15 @@ class ViewController: UIViewController {
     @IBOutlet weak var dogImageView: UIImageView!
     
     
-    
     let urlDefault = "https://dog.ceo/api/breeds/image/random"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        requestNewDog()
+        
+    }
+    
+    func requestNewDog() {
         requestDogImage { [weak self] result in
             switch result {
             case .success(let dog):
@@ -33,7 +36,6 @@ class ViewController: UIViewController {
                 print(error)
             }
         }
-        
     }
 
     func requestDogImage(completion: @escaping(Result<DogImage, DogError>) -> Void) {
@@ -56,6 +58,11 @@ class ViewController: UIViewController {
             }
         }.resume()
     }
+    
+    @IBAction func anotherDog() {
+        requestNewDog()
+    }
+    
 }
     
 
@@ -65,13 +72,14 @@ extension UIImageView {
         guard let url = URL(string: url) else {
             return
         }
-        
         session.dataTask(with: url) { [weak self] data, _, _ in
             guard let data = data else { return }
-            let image = UIImage(data: data)
-            self?.image = image
+                
+            DispatchQueue.main.async {
+                let image = UIImage(data: data)
+                self?.image = image
+            }
         }.resume()
-        
     }
 }
 

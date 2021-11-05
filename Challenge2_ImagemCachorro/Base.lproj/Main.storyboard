@@ -34,18 +34,30 @@
                                     <action selector="anotherDog" destination="BYZ-38-t0r" eventType="touchUpInside" id="3co-DP-fUD"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="UqD-bM-LtU">
+                                <rect key="frame" x="197" y="438" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="20" id="5Qa-sJ-BI1"/>
+                                    <constraint firstAttribute="height" constant="20" id="Zx3-Es-yrv"/>
+                                </constraints>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="UqD-bM-LtU" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="7lI-TS-07L"/>
                             <constraint firstItem="Ly5-l2-UpM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="BuU-5i-VEx"/>
                             <constraint firstItem="Ly5-l2-UpM" firstAttribute="top" secondItem="lGw-Fq-iOl" secondAttribute="bottom" constant="40" id="JzB-3A-6oK"/>
                             <constraint firstItem="lGw-Fq-iOl" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="NZK-Si-nHe"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Ly5-l2-UpM" secondAttribute="trailing" constant="20" id="PMM-l7-juU"/>
+                            <constraint firstItem="UqD-bM-LtU" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="WgK-hX-v3n"/>
                             <constraint firstItem="lGw-Fq-iOl" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="iDW-Y0-G3x"/>
+                            <constraint firstItem="UqD-bM-LtU" firstAttribute="centerY" secondItem="lGw-Fq-iOl" secondAttribute="centerY" id="tmN-nA-SHb"/>
+                            <constraint firstItem="UqD-bM-LtU" firstAttribute="centerX" secondItem="lGw-Fq-iOl" secondAttribute="centerX" id="tsI-Ys-Ysl"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="_activityIndicator" destination="UqD-bM-LtU" id="dDp-G3-vgR"/>
                         <outlet property="dogImageView" destination="lGw-Fq-iOl" id="qIw-B0-vzJ"/>
                     </connections>
                 </viewController>

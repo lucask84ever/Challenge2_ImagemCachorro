@@ -17,7 +17,7 @@ enum DogError: Error {
 class ViewController: UIViewController {
 
     @IBOutlet weak var dogImageView: UIImageView!
-    
+    @IBOutlet weak var _activityIndicator: UIActivityIndicatorView!
     
     let urlDefault = "https://dog.ceo/api/breeds/image/random"
     
@@ -28,10 +28,15 @@ class ViewController: UIViewController {
     }
     
     func requestNewDog() {
+        _activityIndicator.startAnimating()
         requestDogImage { [weak self] result in
             switch result {
             case .success(let dog):
-                self?.dogImageView.downloadImage(dog.message)
+                self?.dogImageView.downloadImage(dog.message) { isLoading in
+                    if !isLoading {
+                        self?._activityIndicator.stopAnimating()
+                    }
+                }
             case .failure(let error):
                 print(error)
             }
@@ -60,6 +65,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func anotherDog() {
+        dogImageView.image = nil
         requestNewDog()
     }
     
@@ -67,17 +73,22 @@ class ViewController: UIViewController {
     
 
 extension UIImageView {
-    func downloadImage(_ url: String) {
+    
+    func downloadImage(_ url: String, completion: @escaping( (Bool) -> Void)) {
         let session = URLSession.shared
         guard let url = URL(string: url) else {
             return
         }
         session.dataTask(with: url) { [weak self] data, _, _ in
-            guard let data = data else { return }
+            guard let data = data else {
+                completion(false)
+                return
+            }
                 
             DispatchQueue.main.async {
                 let image = UIImage(data: data)
                 self?.image = image
+                completion(false)
             }
         }.resume()
     }

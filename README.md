@@ -5,3 +5,4 @@ Esse simples app, carrega uma imagem da [api de cruzamento de cachorros](https:/
 Desafios:
 - Corrigir o defeito que está ocorrendo
 - Adicionar a funcionalidade de apresentar outra imagem quando tocar o botão
+- Faça melhorias, mude o layout, adicione alguma nova funcionalidade.

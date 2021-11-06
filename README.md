@@ -1,6 +1,6 @@
 # Challenge2_ImagemCachorro
 ## Desafio 2 
-Esse simples app, carrega uma imagem da [api de cruzamento de cachorros](https://dog.ceo/api/breeds/image/random) e apresenta em uma UIImageView, entretanto há um problema a ser resolvido e uma funcionalidade para ser desenvolvida.
+Esse simples app, carrega uma imagem aleatória da [api de cruzamentos da dog.ceo](https://dog.ceo/) e apresenta em uma UIImageView, entretanto há um problema a ser resolvido e uma funcionalidade para ser desenvolvida.
 
 Desafios:
 - Corrigir o defeito que está ocorrendo
